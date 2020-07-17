@@ -143,6 +143,12 @@ exports.insertMood = (req, res)=>{
     
 }
 
+exports.spotifyApi = (req,res)=>{
+    
+    res.redirect("http://localhost:3000/")
+}
+
+
 
 exports.Dashboard = (req, res)=>{
 

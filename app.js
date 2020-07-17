@@ -5,6 +5,10 @@ const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
 var Handlebars = require('hbs');
 
+
+
+
+
 Handlebars.registerHelper('json', function(context) {
     return JSON.stringify(context);
 });
@@ -15,11 +19,15 @@ dotenv.config({path: "./.env"})
 
 const app = express();
 
+
+
+
+
 const db = mysql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: ""    
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE    
 })
 
 const publicDirectory = path.join(__dirname, "./public");
@@ -41,6 +49,14 @@ db.connect((error) =>{
         console.log("MySQL Connected")
     }
 })
+
+
+
+
+
+
+
+/*--------------------------------------------------------------- */
 
 //Define routes
 app.use("/", require("./routes/pages"));

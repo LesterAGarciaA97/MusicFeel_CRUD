@@ -31,11 +31,21 @@
                 </th>
                 <th class="thead-light">
                     <div class="container mt-5">
+
+                        <h6>Subir Archivos</h6>
+                                <form action="/auth/files" method="POST" enctype="multipart/form-data" >
+                                   
+                                    <input type="file" name="imagen" id="imagen" >
+                                    <input type="submit" value="Subir">
+                                    <input type="text" class = "form-control" id="txtnombreimagen" value={{nombreArchivo}} name="txtnombreimagen" disabled>
+                                </form>
                         <form action = "/auth/InserMood" method="POST">
                             <div class = "col-md-5 offset-md-3 card">
                                 <div class = "card-header">
-                                    MOOD
+                                    <h2>MOOD</h2>
                                 </div>
+
+                                 
                                 <input type="text" class = "form-control" id="txtMyMood" name="txtMyMood">
                                 <div class = "card-body">
                                     <button type="submit" class="btn btn-dark" onclick="ConseguirMood()">Get my mood</button>
@@ -52,15 +62,56 @@
                 </th>
             </tr>
         </table>
+
+        <table>
+            <tr>
+                <td>
+                     <form action = "/auth/spotifyApi" method="POST">
+                            <div class = "col-md-5 offset-md-3 card">
+                                <div class = "card-header">
+                                    <h2>Spotify_API</h2>
+                                </div>
+
+                                                               
+                                <div class = "card-body">
+                                    <button type="submit" class="btn btn-dark">Click Me :)</button>
+                                </div>
+                                
+                                
+                            </div>
+                        </form>
+                </td>
+            </tr>
+
+        </table>
+
+
         <script>
             const ConseguirMood = () =>{
                 //Axel Easter Egg by Steven Villatoro
                 console.log("te amo AXEL <3");
+               
 
-                $.get("http://localhost:9000/").done((data)=>{
+                var nombreFoto = document.getElementById("txtnombreimagen").value;
+                console.log(nombreFoto);
+
+                
+                
+
+                $.ajax({
+                        url: "http://localhost:9000/",
+                        type: "POST",
+                        data: {nombre: nombreFoto}
+                        
+
+                    }).done(function(data){
+                        document.getElementById("txtMyMood").value = data;
+                    })
+
+                /*$.get("http://localhost:9000/").done((data)=>{
                     console.log(data);
                     document.getElementById("txtMyMood").value = data;
-                })
+                })*/
             }
 
             const ConseguirCancion = () =>{
