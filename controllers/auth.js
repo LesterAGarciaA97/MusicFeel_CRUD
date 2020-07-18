@@ -37,7 +37,7 @@ exports.register = (req, res)=>{
 
         //Aqui agregar un encryptado
 
-        db.query("INSERT INTO UserMusic SET ?", {NAME: name, LASTNAME: lastname, USERNAME: username, PASSWORD: password}, (error, results) =>{
+        db.query("INSERT INTO UserMusic SET ?", {NAME: name, LASTNAME: lastname, USERNAME: username, PASSWORD: password, Admin: 0}, (error, results) =>{
             if (error) {
                 console.log(error)
             }
