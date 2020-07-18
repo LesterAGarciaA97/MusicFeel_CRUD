@@ -24,11 +24,9 @@ router.post("/Dashboard", authController.Dashboard)
 router.post("/spotifyApi", authController.spotifyApi)
 
 AWS.config.update({
-    accessKeyId: process.env.KID,
-    secretAccessKey: process.env.SACCESS,
-    region: "us-east-1"
-
-    
+    accessKeyId: process.env.ACCESSKEYID,
+    secretAccessKey: process.env.SECRETACCESSKEY,
+    region: process.env.REGION
 });
 
 
@@ -57,7 +55,7 @@ router.post("/files",upload.single('imagen'),(req,res)=>{
 
     //configurar parametros
     var params = {
-    Bucket : process.env.BUCKE,
+    Bucket : process.env.BUCKET,
     Body   : fs.createReadStream(filePath),
     Key    : path.basename(filePath),
     ACL    : 'public-read'

@@ -10,16 +10,18 @@
 </head>
     <body background="BLUE">
         <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Administrador: Dashboard</a>
+            <a class="navbar-brand" href="#">ADMINISTRATOR DASHBOARD</a>
         </nav>
         <div class = "container mt-5">
             <form action = "/auth/Dashboard" method = "POST">
-                <div class = "col-md-5 offset-md-3 card">
-                    <div class = "card-header">
-                        Number of people with their respective Emotion:
+            <div class="col text-center">
+                    <div class="col text-center">
+                        <h1 lass="font-weight-bold">Cantidad de emociones procesadas</h1>
                     </div>
+                    <br>
+            </div>
                         <table class="table">
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Mood</th>
@@ -69,18 +71,26 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="submit" class="btn btn-dark">Press me to know :)</button>
+                        <br>
+                        <br>
+                        <div class="col text-center">
+                        <button type="submit" class="btn btn-dark">Ver estadísticas actuales</button>
+                        <br>
+                        </div>
                     </div>      
                 </div>
             </form>
         </div>
-            <section>
+        <br>
+        <div class="col text-center">
+                <div class="col text-center">
                   <div class="container">
+                      <div class="col text-center"></div>
                       <div class="row">
                           <div class="col-lg-8 my-3">
                               <div class="card rounded-0">
                                   <div class="card-header bg-light">
-                                    <h6 class="font-weight-bold mb-0">Número de usuarios de paga</h6>
+                                    <h6 class="font-weight-bold mb-0">Estadísticas de emociones obtenidas</h6>
                                   </div>
                                   <div class="card-body">
                                     <canvas id="myChart" width="300" height="150"></canvas>
@@ -88,8 +98,10 @@
                               </div>
                           </div>
                       </div>
+                      </div>
                   </div>
-              </section>
+        </div>
+
         <script>
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, { 
