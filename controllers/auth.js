@@ -145,7 +145,7 @@ exports.insertMood = (req, res)=>{
 
 exports.spotifyApi = (req,res)=>{
     
-    res.redirect("http://localhost:3000/")
+    res.redirect("http://ec2-3-231-4-88.compute-1.amazonaws.com:3000")
 }
 
 
