@@ -3,9 +3,10 @@ const path = require("path")
 const mysql = require("mysql");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+var cors = require("cors")
 var Handlebars = require('hbs');
 
-
+app.use(cors())
 
 
 
